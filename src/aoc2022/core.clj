@@ -5,7 +5,8 @@
             [aoc2022.day2 :refer [calculate-rps-score-p1
                                   calculate-rps-score-p2]]
             [aoc2022.day3 :refer [sum-compartments
-                                  sum-badges]]))
+                                  sum-badges]]
+            [aoc2022.day4 :refer [count-overlaps]]))
 
 (defn -main
   "Advent of code 2022"
@@ -21,4 +22,5 @@
                    (println p1-result)
                    (println p2-result))
       "day3.txt" (do (println (sum-compartments input-file))
-                     (println (sum-badges input-file))))))
+                     (println (sum-badges input-file)))
+      "day4.txt" (println (count-overlaps input-file)))))
