@@ -3,7 +3,9 @@
   (:require [clojure.string :as str]
             [aoc2022.day1 :refer [count-calories]]
             [aoc2022.day2 :refer [calculate-rps-score-p1
-                                  calculate-rps-score-p2]]))
+                                  calculate-rps-score-p2]]
+            [aoc2022.day3 :refer [sum-compartments
+                                  sum-badges]]))
 
 (defn -main
   "Advent of code 2022"
@@ -17,4 +19,6 @@
       "day2.txt" (let [p1-result (calculate-rps-score-p1 input-file)
                        p2-result (calculate-rps-score-p2 input-file)]
                    (println p1-result)
-                   (println p2-result)))))
+                   (println p2-result))
+      "day3.txt" (do (println (sum-compartments input-file))
+                     (println (sum-badges input-file))))))
