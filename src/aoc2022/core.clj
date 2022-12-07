@@ -8,7 +8,8 @@
                                   sum-badges]]
             [aoc2022.day4 :refer [count-overlaps]]
             [aoc2022.day5 :refer [move-crates-p1
-                                  move-crates-p2]]))
+                                  move-crates-p2]]
+            [aoc2022.day6 :refer [find-signal]]))
 
 (defn -main
   "Advent of code 2022"
@@ -27,4 +28,7 @@
                      (println (sum-badges input-file)))
       "day4.txt" (println (count-overlaps input-file))
       "day5.txt" (do (println (move-crates-p1 input-file))
-                     (println (move-crates-p2 input-file))))))
+                     (println (move-crates-p2 input-file)))
+      "day6.txt" (let [marker (find-signal input-file)]
+                   (println marker)
+                   (println (find-signal input-file marker))))))

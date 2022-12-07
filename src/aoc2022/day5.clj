@@ -39,7 +39,7 @@
                (apply hash-map))
          input-lines)))
 
-(defn move-crates-1
+(defn move-crates-p1
   "Day 5, part 1."
   [input-file]
   (let [procedures (input->mapv input-file)]
