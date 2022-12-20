@@ -9,7 +9,9 @@
             [aoc2022.day4 :refer [count-overlaps]]
             [aoc2022.day5 :refer [move-crates-p1
                                   move-crates-p2]]
-            [aoc2022.day6 :refer [find-signal]]))
+            [aoc2022.day6 :refer [find-signal]]
+            [aoc2022.day8 :refer [visible-trees
+                                  best-visibility]]))
 
 (defn -main
   "Advent of code 2022"
@@ -31,4 +33,6 @@
                      (println (move-crates-p2 input-file)))
       "day6.txt" (let [marker (find-signal input-file)]
                    (println marker)
-                   (println (find-signal input-file marker))))))
+                   (println (find-signal input-file marker)))
+      "day8.txt" (do (println (visible-trees input-file))
+                     (println (best-visibility input-file))))))
