@@ -1,13 +1,15 @@
 (ns aoc2022.day4
   (:require [clojure.string :as str]
-            [clojure.set :as set]))
+            [clojure.set :as set]
+            [clojure.java.io :as io]))
 
 (defn parse-input
   "Day 1. Parse input."
   ([input-file]
    (->> input-file
-        (slurp)
-        (str/split-lines)
+        io/resource
+        slurp
+        str/split-lines
         (map #(map (fn [n] (Integer/parseInt n))
                    (str/split % #"-|,"))))))
 

@@ -19,26 +19,25 @@
 (defn -main
   "Advent of code 2022"
   [& args]
-  (let [[file-name] args
-        input-file (str "resources/" file-name)]
+  (let [[file-name] args]
     (condp = file-name
-      "day1.txt" (let [counted-cals (count-calories input-file)]
+      "day1.txt" (let [counted-cals (count-calories file-name)]
                    (println (apply max counted-cals))
                    (println (apply + (take-last 3 (sort counted-cals)))))
-      "day2.txt" (let [p1-result (calculate-rps-score-p1 input-file)
-                       p2-result (calculate-rps-score-p2 input-file)]
+      "day2.txt" (let [p1-result (calculate-rps-score-p1 file-name)
+                       p2-result (calculate-rps-score-p2 file-name)]
                    (println p1-result)
                    (println p2-result))
-      "day3.txt" (do (println (sum-compartments input-file))
-                     (println (sum-badges input-file)))
-      "day4.txt" (println (count-overlaps input-file))
-      "day5.txt" (do (println (move-crates-p1 input-file))
-                     (println (move-crates-p2 input-file)))
-      "day6.txt" (let [marker (find-signal input-file)]
+      "day3.txt" (do (println (sum-compartments file-name))
+                     (println (sum-badges file-name)))
+      "day4.txt" (println (count-overlaps file-name))
+      "day5.txt" (do (println (move-crates-p1 file-name))
+                     (println (move-crates-p2 file-name)))
+      "day6.txt" (let [marker (find-signal file-name)]
                    (println marker)
-                   (println (find-signal input-file marker)))
+                   (println (find-signal file-name marker)))
       "day7.txt" (let [dir-size-map (input->dir-sizes file-name)]
                    (do (println (filter-and-sum-dirs dir-size-map))
                        (println (find-smallest-dir-to-del dir-size-map))))
-      "day8.txt" (do (println (visible-trees input-file))
-                     (println (best-visibility input-file))))))
+      "day8.txt" (do (println (visible-trees file-name))
+                     (println (best-visibility file-name))))))

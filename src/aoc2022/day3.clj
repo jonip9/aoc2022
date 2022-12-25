@@ -1,6 +1,7 @@
 (ns aoc2022.day3
   (:require [clojure.string :as str]
-            [clojure.set :refer [intersection]]))
+            [clojure.set :refer [intersection]]
+            [clojure.java.io :as io]))
 
 (def items "0abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ")
 
@@ -11,8 +12,9 @@
                           (vector (subs % 0 half)
                                   (subs % half)))
                        (-> input-file
-                           (slurp)
-                           (str/split-lines)))]
+                           io/resource
+                           slurp
+                           str/split-lines))]
     (reduce #(let [[left right] %2
                    dupe (first (intersection (set left)
                                              (set right)))]
@@ -35,7 +37,8 @@
   "Day 3, part 2. Sum total score of badges."
   [input-file]
   (let [rucksacks (-> input-file
-                      (slurp)
-                      (str/split-lines))
+                      io/resource
+                      slurp
+                      str/split-lines)
         badges (find-badges rucksacks)]
     (reduce #(+ %1 (str/index-of items %2)) 0 badges)))

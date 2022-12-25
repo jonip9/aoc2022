@@ -1,5 +1,6 @@
 (ns aoc2022.day2
-  (:require [clojure.string :as str]))
+  (:require [clojure.string :as str]
+            [clojure.java.io :as io]))
 
 (def rps {:rock 1
           :paper 2
@@ -24,7 +25,7 @@
 (defn calculate-rps-score-p2
   "Day 2, part 2. Calculate players total score when round result is known."
   [input-file]
-  (let [rounds (with-open [rdr (clojure.java.io/reader input-file)]
+  (let [rounds (with-open [rdr (io/reader (io/resource input-file))]
                  (reduce conj [] (line-seq rdr)))]
     (reduce (fn [acc val]
               (let [[opp pla] (str/split val #" ")
@@ -53,7 +54,7 @@
 (defn calculate-rps-score-p1
   "Day 2, part 1. Calculate players total score when hand is known."
   [input-file]
-  (let [rounds (with-open [rdr (clojure.java.io/reader input-file)]
+  (let [rounds (with-open [rdr (io/reader (io/resource input-file))]
                  (reduce conj [] (line-seq rdr)))]
     (reduce (fn [acc val]
               (let [[opp pla] (str/split val #" ")

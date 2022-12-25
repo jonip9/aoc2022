@@ -1,5 +1,6 @@
 (ns aoc2022.day5
-  (:require [clojure.string :as str]))
+  (:require [clojure.string :as str]
+            [clojure.java.io :as io]))
 
 ;;; Starting state
 
@@ -27,6 +28,7 @@
   "Transfrom input into more usable format."
   [input-file]
   (let [input-lines (->> input-file
+                         io/resource
                          slurp
                          str/split-lines
                          (map #(str/split % #" ")))]

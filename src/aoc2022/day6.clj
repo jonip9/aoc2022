@@ -1,10 +1,12 @@
 (ns aoc2022.day6
-  (:require [clojure.string :as s]))
+  (:require [clojure.string :as s]
+            [clojure.java.io :as io]))
 
 (defn read-input
   "Read input."
   [input-file]
   (-> input-file
+      io/resource
       slurp
       s/trim-newline))
 

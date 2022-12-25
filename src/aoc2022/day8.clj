@@ -1,11 +1,13 @@
 (ns aoc2022.day8
   (:require [clojure.string :as s]
-            [clojure.set :as set]))
+            [clojure.set :as set]
+            [clojure.java.io :as io]))
 
 (defn input->tree-vec
   "Read input file and create a matrix of integers representing trees."
   [input-file]
   (->> input-file
+       io/resource
        slurp
        s/split-lines
        (mapv #(mapv (fn [n] (Integer/parseInt n))

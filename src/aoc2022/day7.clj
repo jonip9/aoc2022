@@ -23,7 +23,8 @@
 (defn input->dir-sizes
   "Day 7. Count the total size of each directory in the file system."
   [input-file]
-  (loop [lines (-> (io/resource input-file)
+  (loop [lines (-> input-file
+                   io/resource
                    slurp
                    s/split-lines)
          dir-sizes {}
