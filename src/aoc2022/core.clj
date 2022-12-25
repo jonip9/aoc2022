@@ -10,6 +10,9 @@
             [aoc2022.day5 :refer [move-crates-p1
                                   move-crates-p2]]
             [aoc2022.day6 :refer [find-signal]]
+            [aoc2022.day7 :refer [input->dir-sizes
+                                  filter-and-sum-dirs
+                                  find-smallest-dir-to-del]]
             [aoc2022.day8 :refer [visible-trees
                                   best-visibility]]))
 
@@ -34,5 +37,8 @@
       "day6.txt" (let [marker (find-signal input-file)]
                    (println marker)
                    (println (find-signal input-file marker)))
+      "day7.txt" (let [dir-size-map (input->dir-sizes file-name)]
+                   (do (println (filter-and-sum-dirs dir-size-map))
+                       (println (find-smallest-dir-to-del dir-size-map))))
       "day8.txt" (do (println (visible-trees input-file))
                      (println (best-visibility input-file))))))
